@@ -683,7 +683,14 @@ button {
 
   .nav {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    /* Sized to the viewport (not `inset: 0`): the header's backdrop-filter
+       makes it the containing block for this fixed child, so inset-based
+       stretching would only fill the ~header height. vw/vh dodge that. */
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     background: rgba(247, 244, 239, 0.97);
     backdrop-filter: blur(24px);
